@@ -1,0 +1,34 @@
+﻿<Window x:Class="CsScriptGui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CS Script GUI" Height="600" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="170"/>
+        </Grid.ColumnDefinitions>
+
+        <!--ソース記述欄-->
+        <TextBox Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                 Name="txtScript" Margin="2" AcceptsReturn="True" AcceptsTab="True"
+                 PreviewKeyDown="txtScript_PreviewKeyDown"/>
+        <TextBox Grid.Row="0" Grid.Column="1" AcceptsReturn="True"
+                 HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                 Name="txtDll" Margin="2"/>
+
+
+        <!--実行ボタン-->
+        <Button Grid.Row="1" Content="Execute" Width="120" Margin="0,1,0,5" Name="btnExecute" Click="btnExecute_Click" />
+        <GridSplitter HorizontalAlignment="Stretch" Height="3" Grid.Row="1" VerticalAlignment="Bottom"
+                      ResizeBehavior="PreviousAndNext" Grid.ColumnSpan="2"/>
+
+        <!--出力欄-->
+        <TextBox Grid.Row="2" IsReadOnly="True" Name="txtLog" Margin="2" Grid.ColumnSpan="2"
+                 HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+    </Grid>
+</Window>
